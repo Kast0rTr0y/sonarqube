@@ -19,8 +19,25 @@
  */
 import React from 'react';
 import { shallow } from 'enzyme';
-import ViewSelect from '../ViewSelect';
+import PerspectiveSelectOption from '../PerspectiveSelectOption';
 
-it('should render options', () => {
-  expect(shallow(<ViewSelect view="visualizations" />)).toMatchSnapshot();
+it('should render correctly for a view', () => {
+  expect(
+    shallow(
+      <PerspectiveSelectOption option={{ value: 'overall', type: 'view', label: 'Overall' }}>
+        Overall
+      </PerspectiveSelectOption>
+    )
+  ).toMatchSnapshot();
+});
+
+it('should render correctly for a visualization', () => {
+  expect(
+    shallow(
+      <PerspectiveSelectOption
+        option={{ value: 'coverage', type: 'visualization', label: 'Coverage' }}>
+        Coverage
+      </PerspectiveSelectOption>
+    )
+  ).toMatchSnapshot();
 });
